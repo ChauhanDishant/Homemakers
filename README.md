@@ -1,24 +1,23 @@
 <body>
     <div class="container">
         <h1>Homemakers</h1>
-        <img src="Home" alt="Homemakers Logo" class="logo"> <!-- Replace with the actual image URL -->
-        <p>This repository is for the <strong>Homemakers Project</strong>, a home service platform where customers can book appointments for services such as carpentry, plumbing, painting, movers, and packers. The platform aims to streamline the process of scheduling and managing household services efficiently.</p>
+        <ul>![Reliable](https://github.com/user-attachments/assets/220b2971-5d62-4d7e-88de-69fe35ba210f)
+        <p>This repository is for the <strong>Homemakers Project</strong>, a booking platform designed to help customers schedule and manage home services. Users can book appointments for a range of services including carpentry, plumbing, painting, movers, and packers, streamlining the process of arranging household tasks.</p>
         <h2>Table of Contents</h2>
-        <ul>
+
             <li><a href="#project-overview">Project Overview</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#technologies-used">Technologies Used</a></li>
             <li><a href="#setup">Setup</a></li>
         </ul>
         <h2 id="project-overview">Project Overview</h2>
-        <p>The Homemakers Project aims to streamline household management by providing a suite of tools for task organization, scheduling, and tracking. It is designed to help users maintain a well-organized home environment with minimal effort.</p>
+        <p>The Homemakers Project is a home service booking platform that allows users to easily schedule and manage various household services. The platform aims to simplify the process of booking appointments for services like carpentry, plumbing, painting, movers, and packers, making it easier for users to maintain and improve their home environment.</p>
         <h2 id="features">Features</h2>
         <ul class="features">
-            <li>Task Management: Create, assign, and track household tasks.</li>
-            <li>Calendar Integration: Sync tasks with your calendar.</li>
-            <li>Reminder Notifications: Get reminders for upcoming tasks.</li>
-            <li>Analytics: Track task completion and household efficiency.</li>
-            <li>Service Booking: Schedule appointments for services such as carpentry, plumbing, painting, movers, and packers.</li>
+            <li>Service Booking: Schedule appointments for carpentry, plumbing, painting, movers, and packers.</li>
+            <li>Task Management: Organize and track service appointments.</li>
+            <li>Reminder Notifications: Get notifications for upcoming service appointments.</li>
+            <li>Easy Scheduling: User-friendly interface for booking and managing services.</li>
         </ul>
         <h2 id="technologies-used">Technologies Used</h2>
         <ul class="technologies">
