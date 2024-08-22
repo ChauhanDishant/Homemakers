@@ -1,8 +1,8 @@
 <body>
     <div class="container">
         <h1>Homemakers</h1>
-        <img src="https://via.placeholder.com/150" alt="Homemakers Logo" class="logo"> <!-- Replace with the actual image URL -->
-        <p>This repository is for the <strong>Homemakers Project</strong>, a platform designed to empower individuals in managing and organizing household tasks efficiently. This README will guide you through the structure, features, and setup of the project.</p>
+        <img src="Home" alt="Homemakers Logo" class="logo"> <!-- Replace with the actual image URL -->
+        <p>This repository is for the <strong>Homemakers Project</strong>, a home service platform where customers can book appointments for services such as carpentry, plumbing, painting, movers, and packers. The platform aims to streamline the process of scheduling and managing household services efficiently.</p>
         <h2>Table of Contents</h2>
         <ul>
             <li><a href="#project-overview">Project Overview</a></li>
@@ -18,6 +18,7 @@
             <li>Calendar Integration: Sync tasks with your calendar.</li>
             <li>Reminder Notifications: Get reminders for upcoming tasks.</li>
             <li>Analytics: Track task completion and household efficiency.</li>
+            <li>Service Booking: Schedule appointments for services such as carpentry, plumbing, painting, movers, and packers.</li>
         </ul>
         <h2 id="technologies-used">Technologies Used</h2>
         <ul class="technologies">
