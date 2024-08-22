@@ -1,7 +1,8 @@
 <body>
     <div class="container">
         <h1>Homemakers</h1>
-        <img src="![Reliable](https://github.com/user-attachments/assets/220b2971-5d62-4d7e-88de-69fe35ba210f)" alt="Homemakers Logo" class="logo"> 
+        ![Reliable](https://github.com/user-attachments/assets/165217fb-d7f4-4e32-a9b3-d0bfa6fe865a)
+h/to/img.jpg?raw=true "Title")
         <p>This repository is for the <strong>Homemakers Project</strong>, a booking platform designed to help customers schedule and manage home services. Users can book appointments for a range of services including carpentry, plumbing, painting, movers, and packers, streamlining the process of arranging household tasks.</p>
         <h2>Table of Contents</h2>
             <li><a href="#project-overview">Project Overview</a></li>
