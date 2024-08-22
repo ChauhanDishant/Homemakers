@@ -1,39 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homemakers Project</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            color: #333;
-        }
-        h1, h2 {
-            color: #4CAF50;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        .logo {
-            display: block;
-            margin: 20px auto;
-            max-width: 150px;
-        }
-        .features, .technologies, .setup {
-            margin: 20px 0;
-        }
-        .code {
-            background-color: #f4f4f4;
-            border-left: 3px solid #4CAF50;
-            padding: 10px;
-            overflow-x: auto;
-        }
-    </style>
-</head>
 <body>
     <div class="container">
         <h1>Homemakers</h1>
