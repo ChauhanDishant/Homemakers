@@ -38,9 +38,7 @@
     <div class="container">
         <h1>Homemakers</h1>
         <img src="https://via.placeholder.com/150" alt="Homemakers Logo" class="logo"> <!-- Replace with the actual image URL -->
-
         <p>This repository is for the <strong>Homemakers Project</strong>, a platform designed to empower individuals in managing and organizing household tasks efficiently. This README will guide you through the structure, features, and setup of the project.</p>
-
         <h2>Table of Contents</h2>
         <ul>
             <li><a href="#project-overview">Project Overview</a></li>
@@ -48,10 +46,8 @@
             <li><a href="#technologies-used">Technologies Used</a></li>
             <li><a href="#setup">Setup</a></li>
         </ul>
-
         <h2 id="project-overview">Project Overview</h2>
         <p>The Homemakers Project aims to streamline household management by providing a suite of tools for task organization, scheduling, and tracking. It is designed to help users maintain a well-organized home environment with minimal effort.</p>
-
         <h2 id="features">Features</h2>
         <ul class="features">
             <li>Task Management: Create, assign, and track household tasks.</li>
@@ -59,7 +55,6 @@
             <li>Reminder Notifications: Get reminders for upcoming tasks.</li>
             <li>Analytics: Track task completion and household efficiency.</li>
         </ul>
-
         <h2 id="technologies-used">Technologies Used</h2>
         <ul class="technologies">
             <li><strong>HTML/CSS:</strong> For structuring and styling the web interface.</li>
@@ -67,7 +62,6 @@
             <li><strong>Node.js:</strong> For backend services and API integration.</li>
             <li><strong>MongoDB:</strong> For data storage and management.</li>
         </ul>
-
         <h2 id="setup">Setup</h2>
         <p>To get started with the Homemakers Project, follow these steps:</p>
         <ol>
