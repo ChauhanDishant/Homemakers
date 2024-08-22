@@ -1,0 +1,123 @@
+.main_container {
+  position: relative;
+  margin-top: -5px;
+  width: 100%;
+  /* height: auto; */
+  height: 75vh;
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 248 252 / var(--tw-bg-opacity));
+}
+
+.header {
+  padding: 30px;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(102 116 204 / var(--tw-text-opacity));
+  font-size: 2.55rem;
+  font-weight: 600;
+}
+
+.container h4 {
+  --tw-text-opacity: 1;
+  color: rgb(102 116 204 / var(--tw-text-opacity));
+  text-align: center;
+}
+
+/* Card Content */
+.card_container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card_container .card {
+  justify-content: center;
+  width: 230px;
+  height: 270px;
+  background-color: #fff;
+  border-radius: 7%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  margin-top: 14px;
+  margin-left: 11px;
+  width: 90%;
+  height: 65%;
+  object-fit: fill;
+  box-shadow: 4px 4px 4px 2px gray;
+  border-radius: 20%;
+}
+
+.card .content {
+  padding-top: 16px;
+  padding-left: 13px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 3px;
+}
+
+/* StarRating.module.css */
+
+/* StarRating.module.css */
+
+/* Container for the entire star rating component */
+.starRating {
+  margin-left: -22px;
+  justify-content: center;
+  display: flex;
+  align-items: start;
+}
+
+/* Gold stars style */
+.goldStar {
+  /* margin-bottom: 20px; */
+  font-size: 1.5rem;
+  color: gold;
+  margin-right: 5px; /* Provide spacing between stars */
+  cursor: default;
+}
+
+/* Gray stars style */
+.grayStar {
+  /* margin-bottom: 20px; */
+  font-size: 1.5rem;
+  color: gray;
+  margin-right: 5px; /* Provide spacing between stars */
+  cursor: default;
+}
+
+/* Text displaying the rating */
+.ratingText {
+  /* margin-bottom: 20px; */
+  position: relative;
+  font-size: 1.3rem;
+  margin-left: 10px; /* Adjusted for better responsiveness */
+  font-weight: 600;
+  color: black;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+  /* Adjust styles for smaller screens */
+  .starRating {
+    flex-direction: column; /* Stack stars and text vertically on smaller screens */
+  }
+
+  .ratingText {
+    margin-left: 0; /* Remove left margin on smaller screens */
+    margin-top: 10px; /* Add top margin for spacing */
+  }
+}
+

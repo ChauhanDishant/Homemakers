@@ -1,0 +1,64 @@
+.mission_container {
+  display: grid;
+  width: 100%;
+  height: 729px;
+  grid-template-columns: 55% 45%;
+  background-color: #ffffff;
+}
+
+/* Missoin Text */
+.mission .header {
+  font-size: 3.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.mission .mission_content {
+  margin-left: 5px;
+  width: 95%;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+}
+
+.mission .mission_content .mission_state {
+  width: 100%;
+  column-gap: 20px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+.mission_state .mission_use {
+  margin-top: 15px;
+}
+
+.mission_state .mission_use h5 {
+  font-weight: 600;
+  text-align: left;
+}
+.mission_state .mission_use p {
+  text-align: left;
+  font-size: 15px;
+}
+
+.mission_state img {
+  border-radius: 45%;
+  cursor: pointer;
+  padding: 10px;
+  height: 110px;
+}
+/* Image of a Mission */
+.mission_image {
+  border-top-left-radius: 48%;
+  border-bottom-left-radius: 48%;
+  outline: 25px solid #31cac5; /* Set the double border with color and width */
+}
+
+.mission_image img {
+  /* padding: 10px; */
+  border-top-left-radius: 48%;
+  border-bottom-left-radius: 48%;
+  opacity: 0.9;
+  filter: grayscale(100%); /* Convert image to black and white */
+}

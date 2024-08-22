@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.contact_container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.contact_container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+section {
+  position: relative;
+  z-index: 3;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+
+.container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section_header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section_header h2 {
+  color: #fff;
+  font-weight: bold;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.section_header p {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact_info {
+  width: 50%;
+}
+
+.contact_info_item {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.contact_info_icon {
+  height: 70px;
+  width: 70px;
+  color: #1652ad;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.contact_info_icon {
+  font-size: 35px;
+  line-height: 54px;
+}
+
+.contact_info_content {
+  margin-left: 20px;
+}
+
+.contact_info_content h4 {
+  color: #1da9c0;
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.contact_info_content p {
+  color: #fff;
+  font-size: 1em;
+}
+
+.contact_form {
+  background-color: #fff;
+  padding: 40px;
+  width: 45%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.contact_form h2 {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact_form .input_box {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contact_form .input_box input,
+.contact_form .input_box textarea {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 2px solid #333;
+  outline: none;
+  resize: none;
+}
+
+.contact_form .input_box span {
+  position: absolute;
+  left: 0;
+  padding: 5px 0;
+  font-size: 16px;
+  margin: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: #666;
+}
+
+.contact_form .input_box input:focus ~ span,
+.contact_form .input_box textarea:focus ~ span {
+  color: #e91e63;
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+.btn_submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn_submit:hover {
+  background: #fff;
+  color: #00bcd4;
+  border: 1px solid #00bcd4;
+}
+
+.submit {
+  height: 30px;
+  width: 40px;
+  background-color: transparent; /* Set the background color to transparent */
+  margin-left: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit svg {
+  font-size: 18px;
+  color: white;
+  transition: transform 0.3s, color 0.3s; /* Add transition for the transform and color properties */
+}
+
+.btn_submit:hover .submit svg {
+  transform: scale(1.2); /* Increase the size on hover */
+  color: #00bcd4; /* Change the color on hover */
+}
+
+.btn_submit p {
+  margin: 0;
+  font-size: 18px; /* Increase the font size */
+  transition: color 0.3s; /* Add transition for the color property */
+}
+
+.btn_submit:hover p {
+  color: #00bcd4; /* Change the text color on hover */
+}
+
+@media (max-width: 991px) {
+  section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .contact_info {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  .contact_form {
+    width: 100%;
+  }
+}
