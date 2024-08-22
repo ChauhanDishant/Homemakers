@@ -1,7 +1,6 @@
 <body>
     <div class="container">
         <h1>Homemakers</h1>
-        ![Alt Text](https://github.com/ChauhanDishant/Homemakers/blob/main/client/public/Reliable.jpg?raw=true)
         <p>This repository is for the <strong>Homemakers Project</strong>, a booking platform designed to help customers schedule and manage home services. Users can book appointments for a range of services including carpentry, plumbing, painting, movers, and packers, streamlining the process of arranging household tasks.</p>
         <h2>Table of Contents</h2>
             <li><a href="#project-overview">Project Overview</a></li>
