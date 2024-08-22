@@ -1,6 +1,6 @@
 #header-container {
   height: 84vh;
-  padding: 50px 50px;
+  padding: 100px 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;

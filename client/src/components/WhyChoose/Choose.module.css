@@ -4,7 +4,7 @@
   height: 90vh;
   --tw-bg-opacity: 1;
   background-color: rgba(125, 125, 134, 0.772);
-  /* background-color: rgb(150 180 150 / var(--tw-bg-opacity)); */
+  background-color: rgb(150 180 150 / var(--tw-bg-opacity));
 }
 
 .header {

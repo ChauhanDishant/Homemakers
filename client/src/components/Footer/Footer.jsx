@@ -9,7 +9,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { IoIosContact } from "react-icons/io";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <div className={styles.main_container}>
       <div className={styles.footer}>
@@ -142,3 +142,5 @@ export const Footer = () => {
     </div>
   );
 };
+
+export default Footer;

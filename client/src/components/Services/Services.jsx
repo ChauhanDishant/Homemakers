@@ -1,142 +1,69 @@
 import React from "react";
-import styles from "./Services.module.css";
-import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
-export default function Services() {
+const services = [
+  {
+    name: "Carpentry",
+    description: "Professional carpentry services for all your needs.",
+    imgSrc: "Carpenters.jpg",
+    link: "/carpentry",
+  },
+  {
+    name: "Painter",
+    description: "Expert painting services for homes and offices.",
+    imgSrc: "Painters.jpg",
+    link: "/painter",
+  },
+  {
+    name: "Movers & Packers",
+    description: "Safe and reliable moving and packing services.",
+    imgSrc: "MoversandPackers.jpg",
+    link: "/movers",
+  },
+  {
+    name: "Electrician",
+    description: "Certified electricians for all electrical work.",
+    imgSrc: "Electrician.jpg",
+    link: "/electrician",
+  },
+  {
+    name: "Plumbing",
+    description: "Quick and efficient plumbing solutions.",
+    imgSrc: "Plumber.png",
+    link: "/plumbing",
+  },
+];
+
+const Services = () => {
   return (
-    <>
-      <Helmet>
-        <title>Services</title>
-      </Helmet>
-      <div className={styles.main_container}>
-        <div className={styles.header}>Our Featured Services</div>
-        <div className={styles.container}>
-          <h4>
-            "Enlist skilled professionals tailored to your specific needs with
-            Rapid Repair Services"
-          </h4>
-          <div className={styles.card_container}>
-            <div className={styles.card}>
-              <img
-                className={styles.image}
-                src="Service_Painter.jpg"
-                alt="Painting"
-              />
-              <div className={styles.content}>
-                <h2>Painter</h2>
-                <div className={styles.starRating}>
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} className={styles.starContainer}>
-                      <span
-                        className={
-                          star <= 4.1
-                            ? styles.goldStar
-                            : star - 0.5 <= 4.1
-                            ? styles.halfStar
-                            : styles.grayStar
-                        }
-                      >
-                        &#9733;
-                      </span>
-                    </span>
-                  ))}
-                  <p className={styles.ratingText}>4.1</p>
-                </div>
-              </div>
-            </div>
-            <div className={styles.card}>
-              <img
-                className={styles.image}
-                src="./Service_Plumber.webp"
-                alt="Plumber"
-              />
-              <div className={styles.content}>
-                <h2>Plumber</h2>
-                <div className={styles.starRating}>
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} className={styles.starContainer}>
-                      <span
-                        className={
-                          star <= 4.2
-                            ? styles.goldStar
-                            : star - 0.5 <= 4.2
-                            ? styles.halfStar
-                            : styles.grayStar
-                        }
-                      >
-                        &#9733;
-                      </span>
-                    </span>
-                  ))}
-                  <p className={styles.ratingText}>4.2</p>
-                </div>
-              </div>
-            </div>
-            <div className={styles.card}>
-              <img
-                className={styles.image}
-                src="./Service_Electrician.webp"
-                alt="Electrician"
-              />
-              <div className={styles.content}>
-                <h2>Electrician</h2>
-                <div className={styles.starRating}>
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} className={styles.starContainer}>
-                      <span
-                        className={
-                          star <= 4.4
-                            ? styles.goldStar
-                            : star - 0.5 <= 4.4
-                            ? styles.halfStar
-                            : styles.grayStar
-                        }
-                      >
-                        &#9733;
-                      </span>
-                    </span>
-                  ))}
-                  <p className={styles.ratingText}>4.4</p>
-                </div>
-              </div>
-            </div>
-            <div className={styles.card}>
-              <img
-                className={styles.image}
-                src="./Service_Movers.jpg"
-                alt="Movers and Packers"
-              />
-              <div className={styles.content}>
-                <h2>Movers & Packers</h2>
-                <div className={styles.starRating}>
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} className={styles.starContainer}>
-                      <span
-                        className={
-                          star <= 4.3
-                            ? styles.goldStar
-                            : star - 0.5 <= 4.3
-                            ? styles.halfStar
-                            : styles.grayStar
-                        }
-                      >
-                        &#9733;
-                      </span>
-                    </span>
-                  ))}
-                  <p className={styles.ratingText}>4.3</p>
-                </div>
-              </div>
+    <div className="container mx-auto p-8">
+      <h1 className="text-3xl font-bold text-center mb-8">Our Services</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div
+            key={service.name}
+            className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src={service.imgSrc}
+              alt={service.name}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h2 className="text-xl font-semibold mb-2">{service.name}</h2>
+              <p className="text-gray-600 mb-4">{service.description}</p>
+              <Link
+                to={service.link}
+                className="block text-center bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+              >
+                Choose Service
+              </Link>
             </div>
           </div>
-        </div>
-        <svg viewBox="0 0 500 200">
-          <path
-            d="M 0 25 C 250 20 180 130 900 40 L 800 0 L 0 0"
-            fill="rgb(247,248,252)"
-          ></path>
-        </svg>
+        ))}
       </div>
-    </>
+    </div>
   );
-}
+};
+
+export default Services;
