@@ -4,12 +4,12 @@ const {
   signupController,
   loginController,
 } = require("./../../controllers/UserControllers/User");
-const { authMiddleware } = require("./../../middlewares/authMiddleware");
+const authMiddleware = require("../../middlewares/authMiddleware");
 
 // POST || Add the User
 router.post("/signup", signupController);
 
 // GET || Login the User
-router.post("/login", loginController);
+router.post("/login", authMiddleware, loginController);
 
 module.exports = router;

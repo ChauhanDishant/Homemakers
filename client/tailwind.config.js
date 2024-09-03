@@ -19,10 +19,18 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      theme: {
+        extend: {
+          rotate: {
+            "-180": "-180deg",
+            180: "180deg",
+          },
+        },
+      },
       screens: {
         xs: "320px",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

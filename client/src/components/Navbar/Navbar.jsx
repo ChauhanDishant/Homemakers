@@ -23,21 +23,22 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setLoggedIn(false);
-    navigate("/signup", { replace: false });
+    navigate("/", { replace: false });
   };
 
   return (
-    <header className="bg-gradient-to-r from-blue-500 to-purple-600 fixed w-full z-10 transition-all duration-300">
-      <div className="container mx-auto flex justify-between items-center py-4 px-5">
+    <header className="bg-gradient-to-r from-blue-500 to-indigo-600 fixed w-full z-10 transition-all duration-300 mb-20">
+      <div className="container mx-auto flex justify-between items-center py-3 px-5">
         <Link
           to="/"
-          className="text-3xl font-extrabold text-white hover:text-yellow-300 transition-colors duration-300"
+          className="text-3xl font-extrabold text-white no-underline hover:text-yellow-300 hover:no-underline transition-colors duration-300 font-serif italic xs:pr-4 sm:pr-4 "
         >
           Homemakers
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-8 hover:no-underline">
           <NavLink to="/">Home</NavLink>
+          <NavLink to="/aboutus">About Us</NavLink>
           <NavLink to="/services">Services</NavLink>
           <NavLink to="/team">Team</NavLink>
           <NavLink to="/contact-us">Contact Us</NavLink>
@@ -125,7 +126,7 @@ const Navbar = () => {
 const NavLink = ({ to, children }) => (
   <Link
     to={to}
-    className="text-lg font-medium text-white hover:text-yellow-300 transition-colors duration-300"
+    className="text-lg font-medium text-white hover:text-yellow-300 transition-colors duration-300 no-underline hover:no-underline"
   >
     {children}
   </Link>
@@ -134,15 +135,15 @@ const NavLink = ({ to, children }) => (
 const DropdownLink = ({ to, children }) => (
   <Link
     to={to}
-    className="block px-4 py-2 text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition-colors duration-300"
+    className="block px-4 py-2 text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition-colors duration-300 no-underline hover:no-underline"
   >
     {children}
   </Link>
 );
 
 const MobileMenu = ({ isLoggedIn, handleLogin, handleLogout, setMenuOpen }) => (
-  <div className="lg:hidden bg-purple-600">
-    <nav className="flex flex-col items-center py-4 space-y-4">
+  <div className="lg:hidden bg-purple-600 p-2">
+    <nav className="flex flex-col items-center py-4 space-y-4 no-underline hover:no-underline">
       <NavLink to="/" onClick={() => setMenuOpen(false)}>
         Home
       </NavLink>
@@ -151,6 +152,9 @@ const MobileMenu = ({ isLoggedIn, handleLogin, handleLogout, setMenuOpen }) => (
       </NavLink>
       <NavLink to="/team" onClick={() => setMenuOpen(false)}>
         Team
+      </NavLink>
+      <NavLink to="/aboutus" onClick={() => setMenuOpen(false)}>
+        About Us
       </NavLink>
       <NavLink to="/contact-us" onClick={() => setMenuOpen(false)}>
         Contact Us

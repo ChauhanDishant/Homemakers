@@ -58,7 +58,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .contact_info {
@@ -80,7 +80,9 @@ section {
 }
 
 .contact_info_icon {
-  font-size: 35px;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 30px;
   line-height: 54px;
 }
 
