@@ -44,8 +44,10 @@ const Signup = () => {
         <div className="max-w-screen-lg w-full mx-auto px-4">
           <div className="bg-white shadow sm:rounded-lg flex justify-center flex-1 gap-4 py-8 lg:py-12 px-6 lg:px-12">
             <div className="lg:w-1/2 xl:w-6/12">
-              <div className="mt-4 flex flex-col items-center">
-                <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
+              <div className="flex flex-col items-center">
+                <h1 className="text-2xl xl:text-3xl font-extrabold text-indigo-600">
+                  Sign up
+                </h1>
                 <div className="w-full flex-1 mt-4">
                   <div className="mx-auto max-w-xl gap-3">
                     <div className="grid md:grid-cols-1 mb-4">

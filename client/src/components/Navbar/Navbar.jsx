@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -11,19 +12,31 @@ const Navbar = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setLoggedIn(true);
+      try {
+        const decodedToken = jwtDecode(token);
+        const currentTime = Date.now() / 1000;
+        if (decodedToken.exp > currentTime) {
+          setLoggedIn(true);
+        } else {
+          // Token has expired
+          localStorage.removeItem("token");
+          setLoggedIn(false);
+        }
+      } catch (error) {
+        console.error("Invalid token:", error);
+        setLoggedIn(false);
+      }
     }
   }, []);
 
   const handleLogin = () => {
-    setLoggedIn(true);
-    navigate("/signup", { replace: false });
+    navigate("/login", { replace: false });
   };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     setLoggedIn(false);
-    navigate("/", { replace: false });
+    navigate("/login", { replace: false });
   };
 
   return (
