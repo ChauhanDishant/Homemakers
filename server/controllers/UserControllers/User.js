@@ -21,9 +21,9 @@ const signupController = async (req, res) => {
 
     // Create a new user with the hashed password
     const newUser = new userModel({
-      name: req.body.name,
-      phonenumber: req.body.phonenumber,
+      fullname: req.body.fullname,
       email: req.body.email,
+      phonenumber: req.body.phonenumber,
       password: hashedPassword,
     });
 

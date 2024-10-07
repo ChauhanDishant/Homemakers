@@ -4,7 +4,7 @@ const {
   signupController,
   loginController,
 } = require("./../../controllers/UserControllers/User");
-const { authMiddleware } = require("./../../middlewares/authMiddleware");
+const authMiddleware = require("../../middlewares/authMiddleware");
 
 // POST || Add the User
 router.post("/signup", signupController);
