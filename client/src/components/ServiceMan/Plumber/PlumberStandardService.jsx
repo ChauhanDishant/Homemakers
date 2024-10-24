@@ -6,7 +6,7 @@ import emailjs from "emailjs-com";
 import { areas } from "../AllCitiesLocation/AllCitiesLocation";
 import toast from "react-hot-toast";
 
-const ElectricianStandardService = () => {
+const PlumberStandardService = () => {
   // Fields for the Basic Service Form
   const [customername, setCustomerName] = useState("");
   const [customeremail, setCustomerEmail] = useState("");
@@ -17,7 +17,7 @@ const ElectricianStandardService = () => {
   const [area, setArea] = useState("");
   const [customeraddress, setCustomerAddress] = useState("");
   const [serviceCharge, setServiceCharge] = useState("Standar Service");
-  const [serviceType, setServiceType] = useState("Electrician");
+  const [serviceType, setServiceType] = useState("Plumber");
   const [serviceDate, setServiceDate] = useState("");
   const [serviceTime, setServiceTime] = useState("");
 
@@ -36,101 +36,83 @@ const ElectricianStandardService = () => {
 
   const categories = [
     {
-      name: "Switchboards and Sockets",
+      name: "Pipes and Fittings",
       items: [
         {
-          id: "sb001",
-          imageUrl: "/Electrician_SwitchBoard.jpg",
-          name: "Standard Switchboard",
-          price: 500,
-          description: "2-module switchboard",
+          id: "pf001",
+          imageUrl: "https://www.millerplastics.com/wp-content/uploads/2021/11/millerplasticproductsinc-94814-development-pvc-piping-blogbanner1.jpg",
+          name: "PVC Pipe",
+          price: 44,
+          description: "1 inch, 3 m length",
         },
         {
-          id: "sk001",
-          imageUrl: "/Electrician_Socket.jpeg",
-          name: "Modular Socket",
-          price: 250,
-          description: "5A socket",
+          id: "pf002",
+          imageUrl: "https://5.imimg.com/data5/QU/KU/GV/SELLER-9567091/pvc-pipe-fittings.jpg",
+          name: "Pipe Fittings",
+          price: 485,
+          description: "Elbows, tees, and couplings",
         },
       ],
     },
     {
-      name: "Fans",
+      name: "Valves",
       items: [
         {
-          id: "fn001",
-          imageUrl: "/Electrician_CeilingFan.jpg",
-          name: "Ceiling Fan",
-          price: 2000,
-          description: "3-blade, 1200mm",
+          id: "vl001",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQaMLTxn5rrVyjcaSPqIX77j8j8Ht6yCBg1mbU_oI7fnh5sQGL6jnddenG3mnBnxVimIakRa4roJ1CDVuxY6wzmyt_cq_EmQD_HMx-uc749N_FrbSfb1A1TaQ&usqp=CAE",
+          name: "Ball Valve",
+          price: 92,
+          description: "Brass, 1/2 inch",
         },
         {
-          id: "fn002",
-          imageUrl: "/Electrician_WallFan.jpg",
-          name: "Wall Fan",
-          price: 1500,
-          description: "400mm sweep",
+          id: "vl002",
+          imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTkWdW1a2ryEQOvSnq_vfQGkA--Qv0FKpXCxhChASrbnLgxpbG684Ivc2KSQuR0U8zgt5DL9fAMly1R0-_2CDUc24rQi0Vxfw&usqp=CAE",
+          name: "Gate Valve",
+          price: 6500,
+          description: "Stainless steel, 1 inch",
         },
       ],
     },
     {
-      name: "Wiring",
+      name: "Taps and Faucets",
       items: [
         {
-          id: "wr001",
-          imageUrl: "/Electrician_WiringCable.jpg",
-          name: "Electrical Wiring Cable",
-          price: 1000,
-          description: "1 roll, 100 meters",
+          id: "tp001",
+          imageUrl: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSzjQliJ4KwcfvI1Z1BEvnD-HEqQ9tFc_dgCOjbUViSVQrq-JtDT7mcy1-DuUp-oF2mGbFtwaPo6YwbZoAaca67xYBZVIdSiLId5upcHN4M&usqp=CAE",
+          name: "Kitchen Tap",
+          price: 999,
+          description: "Chrome finish, swivel spout",
         },
         {
-          id: "wr002",
-          imageUrl: "/Electrician_WiringKit.jpg",
-          name: "Wiring Kit",
-          price: 500,
-          description: "Includes connectors and tools",
+          id: "tp002",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcS22mCjfZ5KVDws0xasYtN4Dh8LH5qNJNqgoskQoHetk6GWOrnL4cOVKF33mKhfZgwRQ0ej2fqlhop7eh--hRR_aL4ClK9W7dl7By4d8u74&usqp=CAE",
+          name: "Bathroom Faucet",
+          price: 1369,
+          description: "Wall-mounted, single handle",
         },
       ],
     },
     {
-      name: "Doorbell",
+      name: "Plumbing Tools",
       items: [
         {
-          id: "db001",
-          imageUrl: "/Electrician_Doorbell.jpg",
-          name: "Basic Doorbell",
-          price: 300,
-          description: "Simple wired doorbell",
+          id: "pt001",
+          imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQajjITPpExtyramAyjifuysGoUtLFMgz9pHmZOhwU-zcxx3MKQ0Tdg-22JftDuB6BaTwaWFxN7rCxttlXoIKtWgTyXuh6M&usqp=CAE",
+          name: "Pipe Wrench",
+          price: 226,
+          description: "Adjustable, 10 inch",
         },
         {
-          id: "db002",
-          imageUrl: "/Electrician_WirelessDoorbell.jpg",
-          name: "Wireless Doorbell",
-          price: 800,
-          description: "Wireless doorbell with chime",
-        },
-      ],
-    },
-    {
-      name: "Light",
-      items: [
-        {
-          id: "lt001",
-          imageUrl: "/Electrician_LedBulb.jpg",
-          name: "LED Bulb",
-          price: 150,
-          description: "9W, warm white",
-        },
-        {
-          id: "lt002",
-          imageUrl: "/Electrician_CeilingLight.jpg",
-          name: "Ceiling Light",
-          price: 1200,
-          description: "Flush mount ceiling light",
+          id: "pt002",
+          imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRJAfp6h1iarmBIFALV8jV7fXwe60EX4fNyAFdRSwQ8Eb5Ne2OYKQDebD3RFOEfyTYww509gv4rKPsGRyY98I4yli3YZc4qsePjrWfe7OBrj-YXRbaWbnp-&usqp=CAE",
+          name: "Toilet Plunger",
+          price: 34,
+          description: "Rubber cup, wood handle",
         },
       ],
     },
   ];
+
 
   const handleQuantityChange = (item, change) => {
     setCart((prevCart) => {
@@ -282,12 +264,12 @@ const ElectricianStandardService = () => {
   return (
     <>
       <Helmet>
-        <title>Professional Electrical Products and Services</title>
+        <title>Professional Plumber Products and Services</title>
       </Helmet>
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-gray-900 m-8 text-center">
-            Professional Electrical Solutions
+            Professional Plumber Solutions
           </h1>
           {categories.map((category, index) => (
             <div key={index} className="mb-16">
@@ -342,8 +324,8 @@ const ElectricianStandardService = () => {
           ))}
         </div>
       </section>
-      <div className="fixed z-50 bottom-8 right-8">
-        <button 
+      <div className="fixed bottom-8 right-8 z-50">
+        <button
           className="bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
           onClick={openModal}
         >
@@ -508,4 +490,4 @@ const ElectricianStandardService = () => {
   );
 };
 
-export default ElectricianStandardService;
+export default PlumberStandardService;

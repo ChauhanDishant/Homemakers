@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { areas } from "../AllCitiesLocation/AllCitiesLocation";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const ElectricianBasicService = () => {
   // Fields for the Basic Service Form
@@ -79,6 +80,11 @@ const ElectricianBasicService = () => {
 
   return (
     <div className="p-12">
+      <Helmet>
+        <title>
+          Basic Service | Electrical Service
+        </title>
+      </Helmet>
       <div className="max-w-4xl mx-auto m-10 p-8 bg-white rounded-lg shadow-lg">
         <h2 className="mb-6 text-3xl font-bold text-center text-blue-600">
           Basic Service
@@ -96,6 +102,7 @@ const ElectricianBasicService = () => {
               <input
                 type="text"
                 id="your-name"
+                autoFocus
                 className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Your Name.."
                 onChange={(e) => {
@@ -271,7 +278,7 @@ const ElectricianBasicService = () => {
               Service Type: <span className="text-black"> Electrician</span>
             </div>
           </div>
-
+          <span className="flex  text-red-600 font-bold tracking-wide">NOTE: You need to pay the half of the visiting charge in advance.</span>
           {/* Submit Button */}
           <div className="text-center">
             <button

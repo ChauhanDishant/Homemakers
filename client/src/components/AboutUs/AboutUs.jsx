@@ -7,7 +7,7 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Us Section</title>
+        <title>About Us | HomeMakers</title>
       </Helmet>
       <section className="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white dark:bg-dark">
         <div className="container mx-auto">

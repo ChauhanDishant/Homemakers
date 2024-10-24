@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 const Navbar = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Navbar = () => {
         setLoggedIn(false);
       }
     }
-  }, []);
+  }, [localStorage.getItem("token")]);
 
   const handleLogin = () => {
     navigate("/login", { replace: false });
@@ -57,7 +57,7 @@ const Navbar = () => {
           <NavLink to="/contact-us">Contact Us</NavLink>
 
           {isLoggedIn ? (
-            <div className="relative">
+            <div className="relative text-black font-bold tracking-wide">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="flex items-center bg-white text-purple-600 px-4 py-2 rounded-full hover:bg-yellow-300 hover:text-blue-600 transition duration-300"
@@ -78,7 +78,7 @@ const Navbar = () => {
                   ></path>
                 </svg>
               </button>
-              {dropdownOpen && (
+              {!dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-20">
                   <DropdownLink to="/profile">Profile</DropdownLink>
                   <DropdownLink to="/settings">Settings</DropdownLink>
@@ -94,7 +94,7 @@ const Navbar = () => {
           ) : (
             <button
               onClick={handleLogin}
-              className="bg-yellow-400 text-blue-600 px-6 py-2 rounded-full hover:bg-white hover:text-purple-600 transition duration-300 shadow-md"
+              className="bg-yellow-400 text-black font-bold tracking-wide px-6 py-2 rounded-full hover:bg-white hover:text-purple-600 transition duration-300 shadow-md"
             >
               Login / Signup
             </button>
@@ -174,10 +174,10 @@ const MobileMenu = ({ isLoggedIn, handleLogin, handleLogout, setMenuOpen }) => (
       </NavLink>
       {isLoggedIn ? (
         <>
-          <NavLink to="/profile" onClick={() => setMenuOpen(false)}>
+          <NavLink className="font-bold text-black tracking-wide" to="/profile" onClick={() => setMenuOpen(false)}>
             Profile
           </NavLink>
-          <NavLink to="/settings" onClick={() => setMenuOpen(false)}>
+          <NavLink className="text-black tracking-wide font-bold" to="/settings" onClick={() => setMenuOpen(false)}>
             Settings
           </NavLink>
           <button

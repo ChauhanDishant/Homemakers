@@ -4,7 +4,7 @@ import { areas } from "../AllCitiesLocation/AllCitiesLocation";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 
-const ElectricianBasicService = () => {
+const PainterBasicService = () => {
   // Fields for the Basic Service Form
   const [customername, setCustomerName] = useState("");
   const [customeremail, setCustomerEmail] = useState("");
@@ -17,7 +17,7 @@ const ElectricianBasicService = () => {
   const [serviceCharge, setServiceCharge] = useState(
     "Premium Service - ₹ 499 /-"
   );
-  const [serviceType, setServiceType] = useState("Electrician");
+  const [serviceType, setServiceType] = useState("Painter");
   const [serviceDate, setServiceDate] = useState("");
   const [serviceTime, setserviceTime] = useState("");
 
@@ -81,7 +81,9 @@ const ElectricianBasicService = () => {
   return (
     <div className="p-12">
       <Helmet>
-        <title>Premium Service | Electrician Service</title>
+        <title>
+          Premium Service | Painter Service
+        </title>
       </Helmet>
       <div className="max-w-4xl mx-auto m-10 p-8 bg-white rounded-lg shadow-lg">
         <h2 className="mb-6 text-3xl font-bold text-center text-blue-600">
@@ -272,7 +274,7 @@ const ElectricianBasicService = () => {
               Service Charge: <span className="text-black"> ₹ 499 /-</span>
             </div>
             <div className="text-lg font-semibold text-blue-500">
-              Service Type: <span className="text-black"> Electrician</span>
+              Service Type: <span className="text-black"> Painter</span>
             </div>
           </div>
 
@@ -292,4 +294,4 @@ const ElectricianBasicService = () => {
   );
 };
 
-export default ElectricianBasicService;
+export default PainterBasicService;

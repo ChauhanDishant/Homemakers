@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router";
 
 const PricingCard = ({ title, description, price, link }) => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 p-4">
       <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -29,30 +33,30 @@ const ElectricianPricing = () => {
       title: "Basic Service",
       description: "Includes inspection and minor repairs.",
       price: "₹199 (Visiting Charge)",
-      link: "/services/electrician/basicservice",
+      link: "/services/electrician/basic-service",
     },
     {
       title: "Standard Service",
       description: "Includes basic service plus wiring and installation.",
       price: "Depends on Appliance",
-      link: "/services/electrician/standardservice",
+      link: "/services/electrician/standard-service",
     },
     {
       title: "Premium Service",
       description: "All-inclusive service with emergency repairs.",
       price: "₹499 + Appliance Charges",
-      link: "/services/electrician/premiumservice",
+      link: "/services/electrician/premium-service",
     },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Electrician Pricing</title>{" "}
+        <title>Pricing | Electrical Service</title>{" "}
         {/* Moved Helmet to ElectricianPricing */}
       </Helmet>
       <section className="bg-gradient-to-b from-gray-50 to-gray-100 py-12 lg:py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 py-14">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Electrician Pricing

@@ -1,14 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Zap, Droplet, Truck, Hammer, PaintBucket } from "lucide-react";
 import { MdDryCleaning } from "react-icons/md";
 import { Choose } from "../Home/Choose";
 import { useNavigate } from "react-router";
+import { Helmet } from "react-helmet"; 
 
 const ServiceCard = ({ title, icon: Icon, description, link }) => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
+
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
+      <Helmet>
+        <title>
+          Services | HomeMakers
+        </title>
+      </Helmet>
       <div className="mb-8 rounded-lg bg-white p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-blue-50">
         <div className="mb-4 flex justify-center">
           <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-blue-600">

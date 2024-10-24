@@ -23,6 +23,15 @@ import Painter from "./components/ServiceMan/Painter/Painter.jsx";
 import Plumber from "./components/ServiceMan/Plumber/Plumber.jsx";
 import ElectricianStandardService from "./components/ServiceMan/Electrician/ElectricianStandardService.jsx";
 import ElectricianPremiumService from "./components/ServiceMan/Electrician/ElectricianPremiumService.jsx";
+import PlumberBasicService from './components/ServiceMan/Plumber/PlumberBasicService.jsx'
+import PlumberPremiumService from './components/ServiceMan/Plumber/PlumberPremiumService.jsx'
+import PlumberStandardService from './components/ServiceMan/Plumber/PlumberStandardService.jsx'
+import CarpenterBasicService from './components/ServiceMan/Carpenter/CarpenterBasicService.jsx'
+import CarpenterStandardService from './components/ServiceMan/Carpenter/CarpenterStandardService.jsx'
+import CarpenterPremiumService from './components/ServiceMan/Carpenter/CarpenterPremiumService.jsx'
+import PainterBasicService from "./components/ServiceMan/Painter/PainterBasicService.jsx";
+import PainterStandardService from './components/ServiceMan/Painter/PainterStandardService.jsx'
+import PainterPremiumService from './components/ServiceMan/Painter/PainterPremiumService.jsx'
 import { Toaster } from "react-hot-toast"; // Import Toaster and toast
 import ProtectedRoute from "./components/Authentication/ProtectedRoute/ProtectedRoute";
 
@@ -43,18 +52,63 @@ function App() {
             path="/booking"
             element={<ProtectedRoute element={BookingForm} />} // Pass component reference
           />
+
+          {/* Electrician pricing routes */}
           <Route
-            path="/services/electrician/basicservice"
+            path="/services/electrician/basic-service"
             element={<ProtectedRoute element={ElectricianBasicService} />}
           />
           <Route
-            path="/services/electrician/standardservice"
+            path="/services/electrician/standard-service"
             element={<ProtectedRoute element={ElectricianStandardService} />}
           />
           <Route
-            path="/services/electrician/premiumservice"
+            path="/services/electrician/premium-service"
             element={<ProtectedRoute element={ElectricianPremiumService} />}
           />
+
+          {/* Plumber pricing routes */}
+          <Route
+            path="/services/plumber/basic-service"
+            element={<ProtectedRoute element={PlumberBasicService} />}
+          />
+          <Route
+            path="/services/plumber/standard-service"
+            element={<ProtectedRoute element={PlumberStandardService} />}
+          />
+          <Route
+            path="/services/plumber/premium-service"
+            element={<ProtectedRoute element={PlumberPremiumService} />}
+          />
+
+          {/* Carpenter pricing routes */}
+          <Route
+            path="/services/carpenter/basic-service"
+            element={<ProtectedRoute element={CarpenterBasicService} />}
+          />
+          <Route
+            path="/services/carpenter/standard-service"
+            element={<ProtectedRoute element={CarpenterStandardService} />}
+          />
+          <Route
+            path="/services/carpenter/premium-service"
+            element={<ProtectedRoute element={CarpenterPremiumService} />}
+          />
+
+          {/* Painter pricing routes */}
+          <Route
+            path="/services/painter/basic-service"
+            element={<ProtectedRoute element={PainterBasicService} />}
+          />
+          <Route
+            path="/services/painter/standard-service"
+            element={<ProtectedRoute element={PainterStandardService} />}
+          />
+          <Route
+            path="/services/painter/premium-service"
+            element={<ProtectedRoute element={PainterPremiumService} />}
+          />
+          
           {/* Other routes */}
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contact-us" element={<Contact />} />

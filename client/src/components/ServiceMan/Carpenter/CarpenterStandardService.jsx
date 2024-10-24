@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { ShoppingCart, Plus, Minus } from "lucide-react";
 import axios from "axios";
@@ -6,7 +6,8 @@ import emailjs from "emailjs-com";
 import { areas } from "../AllCitiesLocation/AllCitiesLocation";
 import toast from "react-hot-toast";
 
-const ElectricianStandardService = () => {
+const CarpenterStandardService = () => {
+  
   // Fields for the Basic Service Form
   const [customername, setCustomerName] = useState("");
   const [customeremail, setCustomerEmail] = useState("");
@@ -17,7 +18,7 @@ const ElectricianStandardService = () => {
   const [area, setArea] = useState("");
   const [customeraddress, setCustomerAddress] = useState("");
   const [serviceCharge, setServiceCharge] = useState("Standar Service");
-  const [serviceType, setServiceType] = useState("Electrician");
+  const [serviceType, setServiceType] = useState("Carpenter");
   const [serviceDate, setServiceDate] = useState("");
   const [serviceTime, setServiceTime] = useState("");
 
@@ -36,97 +37,78 @@ const ElectricianStandardService = () => {
 
   const categories = [
     {
-      name: "Switchboards and Sockets",
+      name: "Woodwork Tools",
       items: [
         {
-          id: "sb001",
-          imageUrl: "/Electrician_SwitchBoard.jpg",
-          name: "Standard Switchboard",
-          price: 500,
-          description: "2-module switchboard",
+          id: "wt001",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTcxAL--1sMx24JlfBGqccdtGeUr0GWXPu0sL_F3MO-6Vxla9evU_Sf-_BfE3Nnbt2E_IrSwmPJxcrAOnc1DZEhGCNrybHERcA0GnJhcqPyGIU4ydnwF6JO&usqp=CAE",
+          name: "Hammer",
+          price: 419,
+          description: "Claw hammer, 12 oz",
         },
         {
-          id: "sk001",
-          imageUrl: "/Electrician_Socket.jpeg",
-          name: "Modular Socket",
-          price: 250,
-          description: "5A socket",
+          id: "wt002",
+          imageUrl: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQh1vsSYJI56o7r8GKI_eHQwfzy_yjz5MkAOHJHjGWcuSqIgWvRDHbsrVXsUg8FnSE_cAuyU7aBdz0jaGvbNgG6LkFVueT1oA&usqp=CAE",
+          name: "Chisel Set",
+          price: 999,
+          description: "Set of 11 wood chisels",
         },
       ],
     },
     {
-      name: "Fans",
+      name: "Fittings and Fixtures",
       items: [
         {
-          id: "fn001",
-          imageUrl: "/Electrician_CeilingFan.jpg",
-          name: "Ceiling Fan",
-          price: 2000,
-          description: "3-blade, 1200mm",
+          id: "ff001",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQswhvRRNg7xfzu5uVbI7NdjhcXsQcXpoYPCXvfIHnODqhmmN-rrMGZILmPzVsu_7LWBDw5La_O0bqc3q_1MKQ4AF_RWIoCS-tLdBpKApdopJEhLs6y8V7nqQ&usqp=CAE",
+          name: "Door Hinges",
+          price: 227,
+          description: "Pack of 2, brass",
         },
         {
-          id: "fn002",
-          imageUrl: "/Electrician_WallFan.jpg",
-          name: "Wall Fan",
-          price: 1500,
-          description: "400mm sweep",
+          id: "ff002",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ9IiwtJ0vAYm8yfHrCnyVqsEL86A4wGTJa1yCR7KMADc93N_gVs2YeOdBKcm6oiNkSH4jW6uqOpA7iPq9z1V9oJ-7aRAEPwkxkbxuDqrFs&usqp=CAE",
+          name: "Cabinet Latch",
+          price: 185,
+          description: "Magnetic, 2 pack",
         },
       ],
     },
     {
-      name: "Wiring",
+      name: "Wood Types",
       items: [
         {
-          id: "wr001",
-          imageUrl: "/Electrician_WiringCable.jpg",
-          name: "Electrical Wiring Cable",
-          price: 1000,
-          description: "1 roll, 100 meters",
+          id: "wd001",
+          imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTXZi87cRlFqfyYf0WQ4-4EqjSDSkIDUeR8a8i6tbjOEIpw54n9x5OhkT3zn9p0t4gQ4RPbW8klK6ukPjoVRw69qUSEIQfh&usqp=CAE",
+          name: "Teak Wood",
+          price: 3500,
+          description: "Polished, 5 ft plank",
         },
         {
-          id: "wr002",
-          imageUrl: "/Electrician_WiringKit.jpg",
-          name: "Wiring Kit",
-          price: 500,
-          description: "Includes connectors and tools",
+          id: "wd002",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQvlrNOr7dWs4VdhLSLZjYxfuVMe6Jj5ASuWchGEAQ4cSnBn3jP9w-OaL6cdPOCSgR3-76W7RBYhWcj689cR_u-Sl-P6K2etYO_BprJHvk&usqp=CAE",
+          name: "Plywood Sheet",
+          price: 56,
+          description: "8x4 ft, waterproof",
         },
       ],
     },
     {
-      name: "Doorbell",
+      name: "Hardware",
       items: [
         {
-          id: "db001",
-          imageUrl: "/Electrician_Doorbell.jpg",
-          name: "Basic Doorbell",
-          price: 300,
-          description: "Simple wired doorbell",
+          id: "hw001",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSkcQvNLXR8l4Gdedj5PnFmu5YY9MmBjpoRGp36P6Jr4Gu-Ey3DSsj5hPYPaHRRgTkePa0GjbUjK6jDEJ_2uLIWNPQl1Tgw&usqp=CAE",
+          name: "Screwdriver Set",
+          price: 1520,
+          description: "Flathead & Phillips",
         },
         {
-          id: "db002",
-          imageUrl: "/Electrician_WirelessDoorbell.jpg",
-          name: "Wireless Doorbell",
-          price: 800,
-          description: "Wireless doorbell with chime",
-        },
-      ],
-    },
-    {
-      name: "Light",
-      items: [
-        {
-          id: "lt001",
-          imageUrl: "/Electrician_LedBulb.jpg",
-          name: "LED Bulb",
-          price: 150,
-          description: "9W, warm white",
-        },
-        {
-          id: "lt002",
-          imageUrl: "/Electrician_CeilingLight.jpg",
-          name: "Ceiling Light",
-          price: 1200,
-          description: "Flush mount ceiling light",
+          id: "hw002",
+          imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ1esdASN5Pn9usGRq2qxKsYvuihnyZ04qjDS-MS6rxYVvBzksnvqnqfDxeGhpS5Mfw1sMgylagwXkykARb7C6axbLCiIvllFvgs1YeXt6B8_XJ6bi2DCe66A&usqp=CAE",
+          name: "Nails",
+          price: 159,
+          description: "10 mm single nails",
         },
       ],
     },
@@ -282,12 +264,12 @@ const ElectricianStandardService = () => {
   return (
     <>
       <Helmet>
-        <title>Professional Electrical Products and Services</title>
+        <title>Professional Carpenter Products and Services</title>
       </Helmet>
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-gray-900 m-8 text-center">
-            Professional Electrical Solutions
+            Professional Carpenter Solutions
           </h1>
           {categories.map((category, index) => (
             <div key={index} className="mb-16">
@@ -342,8 +324,8 @@ const ElectricianStandardService = () => {
           ))}
         </div>
       </section>
-      <div className="fixed z-50 bottom-8 right-8">
-        <button 
+      <div className="cart fixed bottom-8 right-8 z-50">
+        <button
           className="bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
           onClick={openModal}
         >
@@ -508,4 +490,4 @@ const ElectricianStandardService = () => {
   );
 };
 
-export default ElectricianStandardService;
+export default CarpenterStandardService;

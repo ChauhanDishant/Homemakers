@@ -6,7 +6,7 @@ import emailjs from "emailjs-com";
 import { areas } from "../AllCitiesLocation/AllCitiesLocation";
 import toast from "react-hot-toast";
 
-const ElectricianStandardService = () => {
+const PainterStandardService = () => {
   // Fields for the Basic Service Form
   const [customername, setCustomerName] = useState("");
   const [customeremail, setCustomerEmail] = useState("");
@@ -17,7 +17,7 @@ const ElectricianStandardService = () => {
   const [area, setArea] = useState("");
   const [customeraddress, setCustomerAddress] = useState("");
   const [serviceCharge, setServiceCharge] = useState("Standar Service");
-  const [serviceType, setServiceType] = useState("Electrician");
+  const [serviceType, setServiceType] = useState("Painter");
   const [serviceDate, setServiceDate] = useState("");
   const [serviceTime, setServiceTime] = useState("");
 
@@ -36,97 +36,78 @@ const ElectricianStandardService = () => {
 
   const categories = [
     {
-      name: "Switchboards and Sockets",
+      name: "Painting Tools",
       items: [
         {
-          id: "sb001",
-          imageUrl: "/Electrician_SwitchBoard.jpg",
-          name: "Standard Switchboard",
-          price: 500,
-          description: "2-module switchboard",
+          id: "pt001",
+          imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSa4r2THpk5I1JDCZejUTXk4_yVqH8EBzXWIiEGEwPoep9WPe80DZW19SOH2ePa-7czcl9frbe5ScgsxLMH-RTRciVxOww8Qiyvz8V0ct4iyCWU04vvdl5U6A&usqp=CAE",
+          name: "Paint Brush Set",
+          price: 50,
+          description: "Set of 5, assorted sizes",
         },
         {
-          id: "sk001",
-          imageUrl: "/Electrician_Socket.jpeg",
-          name: "Modular Socket",
+          id: "pt002",
+          imageUrl: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTzR1Nlp5oDuLCf1hdw8xmcNeLGEkij9zjpVFri2rBu6sibHL1aYtRKxyQWajgVW0DVXPSbuRLmnkZprjRkWmA8YLb-9_1ESJlzU7-7Rpf_&usqp=CAE",
+          name: "Paint Roller",
           price: 250,
-          description: "5A socket",
+          description: "9-inch roller with extra cover",
         },
       ],
     },
     {
-      name: "Fans",
+      name: "Paint Types",
       items: [
         {
-          id: "fn001",
-          imageUrl: "/Electrician_CeilingFan.jpg",
-          name: "Ceiling Fan",
-          price: 2000,
-          description: "3-blade, 1200mm",
+          id: "pt003",
+          imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR0hzk47r0KVVnarEy_AYmaQr06HqR-Q87QW1xrh6ejRKgE1zEsMQmW54OjoHE5wJrEZWZPhwdT0a5vTq-4pyDrps-elmze453ZivWFu3c&usqp=CAE",
+          name: "Emulsion Paint",
+          price: 550,
+          description: "1 liter, washable",
         },
         {
-          id: "fn002",
-          imageUrl: "/Electrician_WallFan.jpg",
-          name: "Wall Fan",
-          price: 1500,
-          description: "400mm sweep",
+          id: "pt004",
+          imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTaRDH5sRzoG_0HKZF0_wS8DKqF9ue3ijPSxoKAgLHrf3oN8C1Yw2DLTW_sV2V-bUuV9T9mT36ptLYAYmgGCNpC4SAGDBvIE4x8hn2wDkc&usqp=CAE",
+          name: "Enamel Paint",
+          price: 170,
+          description: "1 liter, glossy finish",
         },
       ],
     },
     {
-      name: "Wiring",
+      name: "Protective Gear",
       items: [
         {
-          id: "wr001",
-          imageUrl: "/Electrician_WiringCable.jpg",
-          name: "Electrical Wiring Cable",
-          price: 1000,
-          description: "1 roll, 100 meters",
+          id: "pt005",
+          imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSter5qp52Dg7FCgyefLeL2vTEZe9sxUvPlmHApFSjcWWhpIxjbLGknrJMYpsgivjymUr_AHxpWkwKtNzLs85bOtob2ppC0Af5ofjdVmDeSx0hZRixWZEBNGw&usqp=CAE",
+          name: "Face Mask",
+          price: 389,
+          description: "Pack of 3, dust protection",
         },
         {
-          id: "wr002",
-          imageUrl: "/Electrician_WiringKit.jpg",
-          name: "Wiring Kit",
-          price: 500,
-          description: "Includes connectors and tools",
+          id: "pt006",
+          imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRb_bIx9mwqeZWvZTDhAdZ6BQNvW3-bhPqfUtqLbPRMkx759_EGzHPvjgTlbwUSGcPSB2F9STdf0X7MIU39ePlWXH71YE7tQtr5kGfVQX5xhA1mCn_Spssb&usqp=CAE",
+          name: "Safety Gloves",
+          price: 130,
+          description: "Pair, latex-free",
         },
       ],
     },
     {
-      name: "Doorbell",
+      name: "Cleaning Supplies",
       items: [
         {
-          id: "db001",
-          imageUrl: "/Electrician_Doorbell.jpg",
-          name: "Basic Doorbell",
-          price: 300,
-          description: "Simple wired doorbell",
+          id: "pt007",
+          imageUrl: "https://paintnhardware.com/2754-large_default/asian-paints-pu-thinner.jpg",
+          name: "Paint Thinner",
+          price: 295,
+          description: "1 liter, solvent-based",
         },
         {
-          id: "db002",
-          imageUrl: "/Electrician_WirelessDoorbell.jpg",
-          name: "Wireless Doorbell",
-          price: 800,
-          description: "Wireless doorbell with chime",
-        },
-      ],
-    },
-    {
-      name: "Light",
-      items: [
-        {
-          id: "lt001",
-          imageUrl: "/Electrician_LedBulb.jpg",
-          name: "LED Bulb",
+          id: "pt008",
+          imageUrl: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTXt8b30beBZpe8Q1k3LDoecRztsRfTdECb8_GmhimyJbvivIek_3fmNaM8YKxuCAYfj2_-St0G7rCCNl7wQjSvlX_KGD3om_Ueb7-W2LcVG2rxgzOXL4H-&usqp=CAE",
+          name: "Brush Cleaner",
           price: 150,
-          description: "9W, warm white",
-        },
-        {
-          id: "lt002",
-          imageUrl: "/Electrician_CeilingLight.jpg",
-          name: "Ceiling Light",
-          price: 1200,
-          description: "Flush mount ceiling light",
+          description: "500 ml, non-toxic",
         },
       ],
     },
@@ -282,12 +263,12 @@ const ElectricianStandardService = () => {
   return (
     <>
       <Helmet>
-        <title>Professional Electrical Products and Services</title>
+        <title>Professional Painter Products and Services</title>
       </Helmet>
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-gray-900 m-8 text-center">
-            Professional Electrical Solutions
+            Professional Painter Solutions
           </h1>
           {categories.map((category, index) => (
             <div key={index} className="mb-16">
@@ -342,8 +323,8 @@ const ElectricianStandardService = () => {
           ))}
         </div>
       </section>
-      <div className="fixed z-50 bottom-8 right-8">
-        <button 
+      <div className="fixed bottom-8 right-8 z-50">
+        <button
           className="bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-colors"
           onClick={openModal}
         >
@@ -508,4 +489,4 @@ const ElectricianStandardService = () => {
   );
 };
 
-export default ElectricianStandardService;
+export default PainterStandardService;

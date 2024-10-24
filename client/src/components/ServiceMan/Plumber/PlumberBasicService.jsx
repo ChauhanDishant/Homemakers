@@ -4,7 +4,7 @@ import { areas } from "../AllCitiesLocation/AllCitiesLocation";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 
-const ElectricianBasicService = () => {
+const PlumberBasicService = () => {
   // Fields for the Basic Service Form
   const [customername, setCustomerName] = useState("");
   const [customeremail, setCustomerEmail] = useState("");
@@ -15,9 +15,9 @@ const ElectricianBasicService = () => {
   const [area, setArea] = useState("");
   const [customeraddress, setCustomerAddress] = useState("");
   const [serviceCharge, setServiceCharge] = useState(
-    "Premium Service - ₹ 499 /-"
+    "Basic Service - ₹ 199 /-"
   );
-  const [serviceType, setServiceType] = useState("Electrician");
+  const [serviceType, setServiceType] = useState("Plumber");
   const [serviceDate, setServiceDate] = useState("");
   const [serviceTime, setserviceTime] = useState("");
 
@@ -81,11 +81,13 @@ const ElectricianBasicService = () => {
   return (
     <div className="p-12">
       <Helmet>
-        <title>Premium Service | Electrician Service</title>
+        <title>
+          Basic Service | Plumber Service
+        </title>
       </Helmet>
       <div className="max-w-4xl mx-auto m-10 p-8 bg-white rounded-lg shadow-lg">
         <h2 className="mb-6 text-3xl font-bold text-center text-blue-600">
-          Premium Service
+          Basic Service
         </h2>
         <form className="space-y-6">
           {/* Name and Email */}
@@ -100,6 +102,7 @@ const ElectricianBasicService = () => {
               <input
                 type="text"
                 id="your-name"
+                autoFocus
                 className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Your Name.."
                 onChange={(e) => {
@@ -269,13 +272,13 @@ const ElectricianBasicService = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="text-lg font-semibold text-blue-500">
-              Service Charge: <span className="text-black"> ₹ 499 /-</span>
+              Service Charge: <span className="text-black"> ₹ 199 /-</span>
             </div>
             <div className="text-lg font-semibold text-blue-500">
-              Service Type: <span className="text-black"> Electrician</span>
+              Service Type: <span className="text-black"> Plumber</span>
             </div>
           </div>
-
+          <span className="flex  text-red-600 font-bold tracking-wide">NOTE: You need to pay the half of the visiting charge in advance.</span>
           {/* Submit Button */}
           <div className="text-center">
             <button
@@ -292,4 +295,4 @@ const ElectricianBasicService = () => {
   );
 };
 
-export default ElectricianBasicService;
+export default PlumberBasicService;

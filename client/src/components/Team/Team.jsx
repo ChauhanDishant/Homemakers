@@ -1,9 +1,15 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa"; // Updated imports
 
 const TeamMember = ({ name, role, imageSrc, linkedin, instagram, github }) => {
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
+      <Helmet>
+        <title>
+          Team | HomeMakers
+        </title>
+      </Helmet>
       <div className="mb-8 rounded-lg bg-white p-6 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
         <div className="mb-4 flex justify-center">
           <div className="w-32 h-32 overflow-hidden rounded-full border-2 border-blue-500 shadow-md">
@@ -45,7 +51,7 @@ const Team = () => {
     {
       name: "Dishant Chauhan",
       role: "Front-End Developer",
-      imageSrc: "Dishant.jpeg",
+      imageSrc: "Team/Dishant.jpeg",
       linkedin: "https://linkedin.com/in/dishantchauhan",
       instagram: "https://instagram.com/dishantchauhan",
       github: "https://github.com/dishantchauhan",
@@ -53,10 +59,10 @@ const Team = () => {
     {
       name: "Parmesh Bhatt",
       role: "Back-End Developer",
-      imageSrc: "Parmesh.jpeg",
-      linkedin: "https://linkedin.com/in/parmeshbhatt",
-      instagram: "https://instagram.com/parmeshbhatt",
-      github: "https://github.com/parmeshbhatt",
+      imageSrc: "Team/Parmesh_Bhatt.jpeg",
+      linkedin: "https://linkedin.com/in/parmesh-bhatt",
+      instagram: "https://www.instagram.com/pb_.119/",
+      github: "https://github.com/Parmesh119",
     },
     {
       name: "Priyank Vyas",

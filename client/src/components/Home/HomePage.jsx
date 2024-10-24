@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>HomePage</title>
+        <title>HomeMakers | Expert Home Services At Your Doorstep </title>
       </Helmet>
       <div className="bg-gradient-to-b from-gray-50 to-white">
         <section className="py-20 sm:py-32 overflow-hidden">
@@ -39,7 +39,9 @@ export default function HomePage() {
                     Explore Our Services
                   </button>
                   <button
-                    href="/contact"
+                    onClick={() => {
+                      navigate("/contact-us")
+                    }}
                     className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition duration-150 ease-in-out"
                   >
                     Get in Touch

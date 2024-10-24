@@ -1,5 +1,5 @@
 const userModel = require("./../../models/UserModels/userModels");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // Add the Users
@@ -16,8 +16,8 @@ const signupController = async (req, res) => {
     }
 
     // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const salt = await bcryptjs.genSalt(10);
+    const hashedPassword = await bcryptjs.hash(req.body.password, salt);
 
     // Create a new user with the hashed password
     const newUser = new userModel({
@@ -53,7 +53,7 @@ const loginController = async (req, res) => {
         .send({ message: "User Does not Exist", success: false });
     }
 
-    const isMatch = await bcrypt.compare(
+    const isMatch = await bcryptjs.compare(
       req.body.password,
       existingUser.password
     );
@@ -117,8 +117,8 @@ const loginController = async (req, res) => {
 
 //     // Check if password is provided and hash it
 //     if (req.body.password) {
-//       const salt = await bcrypt.genSalt(10);
-//       updateData.password = await bcrypt.hash(req.body.password, salt);
+//       const salt = await bcryptjs.genSalt(10);
+//       updateData.password = await bcryptjs.hash(req.body.password, salt);
 //     }
 
 //     // Update the user profile

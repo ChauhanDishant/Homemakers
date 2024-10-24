@@ -11,13 +11,18 @@ import { IoIosContact } from "react-icons/io";
 const Footer = () => {
   return (
     <div class="relative w-full h-auto bg-[#f7f8fc]">
-      <div class="font-serif text-4xl text-[#0d0a0f] pt-7 text-center font-normal">
+      <div class="font-system-ui-700 text-4xl text-[#0d0a0f] pt-7 text-center font-normal" style={{
+        fontWeight: "600",
+        fontSize: "40px",
+        lineHeight: "40px",
+        letterSpacing: "1px"
+      }}>
         HomeMakers
       </div>
       <div>
         <div className="mt-7 ml-20 grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-[20%_22%_23%_30%]">
           {/* Content Number 1 */}
-          <div className="w-full leading-[2vh]">
+          <div className="w-full leading-[2vh] space-y-4 font-bold tracking-wide text-black">
             <h4 className="mb-[20px] font-[1.3rem] mt-[0.5vh]">Our Service</h4>
             <p>
               <Link
@@ -69,9 +74,9 @@ const Footer = () => {
             </p>
           </div>
           {/* Content Number 2*/}
-          <div className="w-full leading-[2vh]">
+          <div className="w-full leading-[2vh] space-y-4 font-bold tracking-wide text-black">
             <h4 className="mb-[20px] font-[1.3rem] mt-[0.5vh]">
-              About Homemakers
+              About
             </h4>
             <p>
               <Link
@@ -98,7 +103,7 @@ const Footer = () => {
               </Link>
             </p>
           </div>
-          <div className="w-full leading-[2.5vh]">
+          <div className="w-full leading-[2.5vh] space-y-4 font-bold tracking-wide text-black">
             <h4 className="mb-[20px] font-[1.3rem] mt-[0.5vh]">Contact</h4>
             <p className="grid grid-cols-[10%_auto] hover:text-blue-600">
               <IoLocationOutline />
@@ -113,10 +118,10 @@ const Footer = () => {
               <MdOutlineMail />
               dishantchauhan40@gmail.com
             </p>
-            <p className="grid grid-cols-[10%_auto] hover:text-blue-600">
+            {/* <p className="grid grid-cols-[10%_auto] hover:text-blue-600">
               <IoIosContact />
               Contact-Us
-            </p>
+            </p> */}
 
             <hr className="w-[80%]"></hr>
             <div className="w-[4/5] mx-auto">
@@ -161,8 +166,8 @@ const Footer = () => {
           </div>
         </div>
         <hr></hr>
-        <p className="text-center text-xs md:text-lg">
-          &copy; Homemakers 2024 - ALL OF THE RIGHTS RESERVED
+        <p className="text-center text-xs md:text-lg tracking-wide text-black font-bold">
+          &copy; Homemakers 2024 - All Rights Received.
         </p>
       </div>
     </div>
