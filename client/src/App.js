@@ -45,15 +45,15 @@ function App() {
           />
           <Route
             path="/services/electrician/basicservice"
-            element={<ProtectedRoute element={ElectricianBasicService} />}
+            element={<ElectricianBasicService />}
           />
           <Route
             path="/services/electrician/standardservice"
-            element={<ProtectedRoute element={ElectricianStandardService} />}
+            element={<ElectricianStandardService />}
           />
           <Route
             path="/services/electrician/premiumservice"
-            element={<ProtectedRoute element={ElectricianPremiumService} />}
+            element={<ElectricianPremiumService />}
           />
           {/* Other routes */}
           <Route path="/aboutus" element={<AboutUs />} />

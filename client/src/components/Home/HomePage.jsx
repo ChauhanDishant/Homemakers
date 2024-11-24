@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>HomePage</title>
+        <title>HomeMakers</title>
       </Helmet>
       <div className="bg-gradient-to-b from-gray-50 to-white">
         <section className="py-20 sm:py-32 overflow-hidden">

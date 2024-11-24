@@ -94,7 +94,7 @@ const Navbar = () => {
           ) : (
             <button
               onClick={handleLogin}
-              className="bg-yellow-400 text-blue-600 px-6 py-2 rounded-full hover:bg-white hover:text-purple-600 transition duration-300 shadow-md"
+              className="bg-yellow-400 text-blue-700 px-6 py-2 rounded-full hover:bg-white hover:text-purple-600 transition duration-300 shadow-md"
             >
               Login / Signup
             </button>
