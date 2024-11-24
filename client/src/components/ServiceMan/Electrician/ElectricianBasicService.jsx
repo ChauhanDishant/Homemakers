@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { areas } from "../AllCitiesLocation/AllCitiesLocation";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import StepProgressBar from "../../ProgressBar/ProgressBar";
 
 const ElectricianBasicService = () => {
+
+  const steps = [
+    { id: 1, title: "Step 1", description: "Application Form" },
+    { id: 2, title: "Step 2", description: "Checking Details" },
+    { id: 2, title: "Step 3", description: "Payment" },
+    { id: 3, title: "Step 4", description: "Preview" }
+  ];
+
+
+
   // Fields for the Basic Service Form
   const [customername, setCustomerName] = useState("");
   const [customeremail, setCustomerEmail] = useState("");
@@ -20,6 +31,16 @@ const ElectricianBasicService = () => {
   const [serviceType, setServiceType] = useState("Electrician");
   const [serviceDate, setServiceDate] = useState("");
   const [serviceTime, setserviceTime] = useState("");
+  const [currentStep, setCurrentStep] = useState(1); // Currently on Step 2
+
+  useEffect(() => {
+    if(currentStep === 2) {
+      setTimeout(() => {
+        toast.loading("Checking Availability")
+      }, 1000)
+      setCurrentStep(prev => prev + 1)
+    }
+  }, [currentStep])
 
   const handleCityChange = (e) => {
     const city = e.target.value;
@@ -59,7 +80,7 @@ const ElectricianBasicService = () => {
 
       if (response.data.success) {
         toast.success("Service Requested Successfully");
-        window.location.reload();
+        setCurrentStep(prev => prev + 1)
       } else {
         toast.error(response.data.message);
       }
@@ -79,217 +100,242 @@ const ElectricianBasicService = () => {
   };
 
   return (
-    <div className="p-12">
+    <div className="p-20">
       <Helmet>
         <title>
           Basic Service | Electrical Service
         </title>
       </Helmet>
-      <div className="max-w-4xl mx-auto m-10 p-8 bg-white rounded-lg shadow-lg">
-        <h2 className="mb-6 text-3xl font-bold text-center text-blue-600">
-          Basic Service
-        </h2>
-        <form className="space-y-6">
-          {/* Name and Email */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label
-                htmlFor="your-name"
-                className="block text-sm font-medium text-blue-700"
-              >
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="your-name"
-                autoFocus
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your Name.."
-                onChange={(e) => {
-                  setCustomerName(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="your-email"
-                className="block text-sm font-medium text-blue-700"
-              >
-                Your Email
-              </label>
-              <input
-                type="email"
-                id="your-email"
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your@gmail.com"
-                onChange={(e) => {
-                  setCustomerEmail(e.target.value);
-                }}
-              />
-            </div>
+      <div className="mt-8">
+        <div className="tracking-wide w-full max-w-7xl mx-auto p-4 bg-white shadow-md rounded-md">
+          <div className="flex justify-between items-center">
+            {steps.map((step, index) => (
+              <div key={step.id} className="flex flex-col items-center flex-1">
+                {/* Step Line */}
+                <div
+                  className={`w-full h-1 mb-2 ${currentStep >= step.id ? "bg-indigo-500" : "bg-white"
+                    }`}
+                ></div>
+
+                {/* Step Number */}
+                <p className={`text-sm ${currentStep >= step.id ? "text-indigo-500 font-semibold" : "text-gray-500"}`}>
+                  {step.title}
+                </p>
+
+                {/* Step Description */}
+                <p className={`${currentStep >= step.id ? "text-black font-semibold" : "text-gray-500"}`}>
+                  {step.description}
+                </p>
+              </div>
+            ))}
           </div>
-
-          {/* Phone Numbers */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label
-                htmlFor="phone-1"
-                className="block text-sm font-medium text-blue-700"
-              >
-                Your Phone-1
-              </label>
-              <input
-                type="tel"
-                id="phone-1"
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Phone Number"
-                onChange={(e) => {
-                  setCustomerPhone1(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="phone-2"
-                className="block text-sm font-medium text-blue-700"
-              >
-                Your Phone-2
-              </label>
-              <input
-                type="tel"
-                id="phone-2"
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Phone Number"
-                onChange={(e) => {
-                  setCustomerPhone2(e.target.value);
-                }}
-              />
-            </div>
-          </div>
-
-          {/* City and Area */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
-              <label
-                htmlFor="city-select"
-                className="block text-sm font-medium text-blue-700"
-              >
-                Select a City:
-              </label>
-              <select
-                id="city-select"
-                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                onChange={handleCityChange}
-                value={selectedCity}
-              >
-                <option value="">--Select a City--</option>
-                <option value="Ahmedabad">Ahmedabad</option>
-                <option value="Rajkot">Rajkot</option>
-                <option value="Vadodara">Vadodara</option>
-              </select>
-            </div>
-
-            {selectedCity && (
+        </div>
+        <div className="max-w-4xl mx-auto m-10 p-10 bg-white rounded-lg shadow-lg">
+          <h2 className="mb-6 text-3xl font-bold text-center text-blue-600">
+            Basic Service
+          </h2>
+          <form className="space-y-6">
+            {/* Name and Email */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label
-                  htmlFor="area-select"
-                  className="block text-sm font-medium text-green-600"
+                  htmlFor="your-name"
+                  className="block text-sm font-medium text-blue-700"
                 >
-                  Area in {selectedCity}:
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="your-name"
+                  autoFocus
+                  className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Your Name.."
+                  onChange={(e) => {
+                    setCustomerName(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="your-email"
+                  className="block text-sm font-medium text-blue-700"
+                >
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="your-email"
+                  className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Your@gmail.com"
+                  onChange={(e) => {
+                    setCustomerEmail(e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Phone Numbers */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label
+                  htmlFor="phone-1"
+                  className="block text-sm font-medium text-blue-700"
+                >
+                  Your Phone-1
+                </label>
+                <input
+                  type="tel"
+                  id="phone-1"
+                  className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Phone Number"
+                  onChange={(e) => {
+                    setCustomerPhone1(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="phone-2"
+                  className="block text-sm font-medium text-blue-700"
+                >
+                  Your Phone-2
+                </label>
+                <input
+                  type="tel"
+                  id="phone-2"
+                  className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Phone Number"
+                  onChange={(e) => {
+                    setCustomerPhone2(e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* City and Area */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label
+                  htmlFor="city-select"
+                  className="block text-sm font-medium text-blue-700"
+                >
+                  Select a City:
                 </label>
                 <select
-                  id="area-select"
-                  className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  onChange={(e) => {
-                    setArea(e.target.value);
-                  }}
+                  id="city-select"
+                  className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  onChange={handleCityChange}
+                  value={selectedCity}
                 >
-                  <option value="">--Select an Area--</option>
-                  {areaData.map((area, index) => (
-                    <option key={index} value={area}>
-                      {area}
-                    </option>
-                  ))}
+                  <option value="">--Select a City--</option>
+                  <option value="Ahmedabad">Ahmedabad</option>
+                  <option value="Rajkot">Rajkot</option>
+                  <option value="Vadodara">Vadodara</option>
                 </select>
               </div>
-            )}
-          </div>
 
-          {/* Address */}
-          <div>
-            <label
-              htmlFor="address"
-              className="block text-sm font-medium text-blue-700"
-            >
-              Your Address
-            </label>
-            <textarea
-              id="address"
-              className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Your Address"
-              onChange={(e) => {
-                setCustomerAddress(e.target.value);
-              }}
-              rows="3"
-            />
-          </div>
+              {selectedCity && (
+                <div>
+                  <label
+                    htmlFor="area-select"
+                    className="block text-sm font-medium text-green-600"
+                  >
+                    Area in {selectedCity}:
+                  </label>
+                  <select
+                    id="area-select"
+                    className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    onChange={(e) => {
+                      setArea(e.target.value);
+                    }}
+                  >
+                    <option value="">--Select an Area--</option>
+                    {areaData.map((area, index) => (
+                      <option key={index} value={area}>
+                        {area}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+            </div>
 
-          {/* Service Charge */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Address */}
             <div>
               <label
-                htmlFor="service-date"
+                htmlFor="address"
                 className="block text-sm font-medium text-blue-700"
               >
-                Service Date
+                Your Address
               </label>
-              <input
-                type="date"
-                id="Date"
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                min={new Date().toISOString().split("T")[0]} // Set min to today's date
+              <textarea
+                id="address"
+                className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Your Address"
                 onChange={(e) => {
-                  setServiceDate(e.target.value);
+                  setCustomerAddress(e.target.value);
                 }}
+                rows="3"
               />
             </div>
-            <div>
-              <label
-                htmlFor="service-date"
-                className="block text-sm font-medium text-blue-700"
+
+            {/* Service Charge */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="service-date"
+                  className="block text-sm font-medium text-blue-700"
+                >
+                  Service Date
+                </label>
+                <input
+                  type="date"
+                  id="Date"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  min={new Date().toISOString().split("T")[0]} // Set min to today's date
+                  onChange={(e) => {
+                    setServiceDate(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="service-date"
+                  className="block text-sm font-medium text-blue-700"
+                >
+                  Expected Time
+                </label>
+                <input
+                  type="time"
+                  id="Time"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  onChange={(e) => {
+                    setserviceTime(e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="text-lg font-semibold text-blue-500">
+                Service Charge: <span className="text-black"> ₹ 199 /-</span>
+              </div>
+              <div className="text-lg font-semibold text-blue-500">
+                Service Type: <span className="text-black"> Electrician</span>
+              </div>
+            </div>
+            <span className="flex  text-red-600 font-bold tracking-wide">NOTE: You need to pay the half of the visiting charge in advance.</span>
+            {/* Submit Button */}
+            <div className="text-center">
+              <button
+                type="submit"
+                className="px-6 py-2 w-full tracking-wide font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-300"
+                onClick={handleSubmit}
               >
-                Expected Time
-              </label>
-              <input
-                type="time"
-                id="Time"
-                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                onChange={(e) => {
-                  setserviceTime(e.target.value);
-                }}
-              />
+                Book Now
+              </button>
             </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="text-lg font-semibold text-blue-500">
-              Service Charge: <span className="text-black"> ₹ 199 /-</span>
-            </div>
-            <div className="text-lg font-semibold text-blue-500">
-              Service Type: <span className="text-black"> Electrician</span>
-            </div>
-          </div>
-          <span className="flex  text-red-600 font-bold tracking-wide">NOTE: You need to pay the half of the visiting charge in advance.</span>
-          {/* Submit Button */}
-          <div className="text-center">
-            <button
-              type="submit"
-              className="px-6 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-300"
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );
