@@ -30,11 +30,13 @@ app.use(morgan("dev")); // -- app engine
 
 // ************************** routes *****************************
 
-// ---------------------- Authentication Routes
+// ---------------------- Authentication Routes --------------------------
 app.use("/homemakers", require("./routes/AuthRoutes/authRoutes"));
 
+// -------------------- Service Routes ------------------------------
+app.use("/homemakers", require("./routes/ServiceManRoutes/ServiceManRoutes"));
 // PORT
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, (error) => {
   if (!error) {
